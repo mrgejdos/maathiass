@@ -8,23 +8,30 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     
     <!-- SEO Meta Tags -->
-    <title>Angel of Death | Maathiass Gonnicy</title>
-    <meta name="description" content="Explore the Angel of Death, a haunting masterpiece by Maathiass Gonnicy that explores themes of mortality and divine intervention through contemporary art.">
-    <meta name="keywords" content="Angel of Death, Maathiass Gonnicy, contemporary art, modern art, mortality themes">
+    <title>Maathiass Gonnicy | Contemporary Art Portfolio</title>
+    <meta name="description" content="Explore the contemporary art portfolio of Maathiass Gonnicy, featuring unique pieces like Angel of Death, Mrs. Nobody, Quiet Milady, and Two Teardrops. Modern artistic expression through various mediums.">
+    <meta name="keywords" content="Maathiass Gonnicy, contemporary art, modern art, art portfolio, Angel of Death, Mrs. Nobody, Quiet Milady, Two Teardrops">
     <meta name="author" content="Maathiass Gonnicy">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://maathiass.com/angel_of_death">
-    <meta property="og:title" content="Angel of Death | Maathiass Gonnicy">
-    <meta property="og:description" content="A haunting exploration of mortality and divine intervention through contemporary art.">
-    <meta property="og:image" content="https://mrgejdos.github.io/maathiass/angel_of_death.JPG">
+    <meta property="og:url" content="https://maathiass.com/">
+    <meta property="og:title" content="Maathiass Gonnicy | Contemporary Art Portfolio">
+    <meta property="og:description" content="Explore the contemporary art portfolio of Maathiass Gonnicy, featuring unique pieces that challenge traditional perspectives.">
+    <meta property="og:image" content="https://mrgejdos.github.io/maathiass/logo.png">
     
-    <!-- Fonts -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">    
+    <meta name="twitter:title" content="Maathiass Gonnicy | Contemporary Art Portfolio">
+    <meta name="twitter:description" content="Explore the contemporary art portfolio of Maathiass Gonnicy, featuring unique pieces that challenge traditional perspectives.">
+    <meta name="twitter:image" content="https://mrgejdos.github.io/maathiass/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://maathiass.com/">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         * {
             margin: 0;
@@ -35,9 +42,620 @@
         body {
             font-family: 'Space Grotesk', sans-serif;
             background: #fff;
+        }
+
+        .onboarding {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOut 3s ease-in-out forwards;
+            padding-top: 3rem;
+        }
+
+        .onboarding h1 {
+            color: black;
+            font-family: 'Gabriola', 'Syne', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: #fff;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h2 {
+            font-family: 'Gabriola', 'Syne', serif;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            background: linear-gradient(45deg, #000, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .gallery {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            padding: 0 4rem;
+        }
+
+        .art-piece {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: auto;
+            line-height: 0;
+        }
+
+        .art-piece:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0);
+        }
+
+        .art-piece img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .art-piece:hover img {
+            transform: scale(1.05);
+        }
+
+        .art-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            color: black;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            line-height: normal;
+        }
+
+        .art-description h3 {
+            font-family: 'Gabriola', 'Syne', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .art-description p {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .art-piece:hover .art-description {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .header h2 {
+                font-size: 3.5rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .placeholder-svg {
+                height: 250px;
+            }
+
+            .hero-image .placeholder-svg {
+                height: 200px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-image-column {
+                gap: 1rem;
+            }
+        }
+
+        @keyframes fadeOut {
+            0%, 70% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* New styles for enhanced design */
+        .placeholder-svg {
+            width: 100%;
+            height: 450px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            background: #000;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            margin-top: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+                        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            font-family: 'Gabriola', 'Syne', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: white;
+            opacity: 0.3;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.7;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        /* New hero section enhancements */
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            padding: 0 2rem;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-family: 'Gabriola', 'Syne', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #fff;
             color: #000;
         }
 
+        .hero-image {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .hero-image-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-image-column:nth-child(2) {
+            margin-top: 4rem;
+        }
+
+        .hero-art-piece {
+            background: #ffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0);
+            transition: all 0.5s ease;
+        }
+
+        .hero-art-piece:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0);
+        }
+
+        .hero-art-piece img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Add these comprehensive responsive styles */
+        @media (max-width: 1200px) {
+            .hero-content {
+                gap: 3rem;
+                padding: 0 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .hero-text {
+                text-align: center;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-image {
+                max-width: 600px;
+                margin: 2rem auto 0;
+            }
+
+            .header h2 {
+                font-size: 4rem;
+            }
+
+            .gallery {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .header {
+                margin-bottom: 4rem;
+            }
+
+            .header h2 {
+                font-size: 3rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .gallery {
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .art-piece {
+                border-radius: 15px;
+            }
+
+            .footer {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .footer-content {
+                gap: 3rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-section p {
+                font-size: 1rem;
+            }
+            
+            .social-links {
+                margin-top: 1.5rem;
+            }
+
+            .art-piece img {
+                height: 300px;
+            }
+            
+            .hero-art-piece img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                width: 100%;
+                justify-content: center;
+                padding: 1.2rem;
+            }
+
+            .header h2 {
+                font-size: 2.5rem;
+            }
+
+            .art-description {
+                padding: 1.5rem;
+            }
+
+            .art-description h3 {
+                font-size: 1.3rem;
+            }
+
+            .art-description p {
+                font-size: 0.95rem;
+            }
+
+            .hero-image-column {
+                gap: 1rem;
+            }
+
+            .hero-image-column:nth-child(2) {
+                margin-top: 1rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .footer-section p {
+                font-size: 0.95rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .onboarding h1 {
+                font-size: 2.5rem;
+                padding: 0 1rem;
+                text-align: center;
+            }
+
+            .art-piece img {
+                height: 250px;
+            }
+            
+            .hero-art-piece img {
+                height: 200px;
+            }
+        }
+
+        /* Add smooth scrolling for better mobile experience */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improve touch targets on mobile */
+        @media (hover: none) {
+            .hero-cta,
+            .social-links a,
+            .announcement-banner a {
+                padding: 1rem 2rem;
+            }
+
+            .art-piece:hover {
+                transform: none;
+            }
+
+            .art-description {
+                transform: translateY(0);
+                position: relative;
+            }
+        }
+
+        /* Ensure SVGs scale properly */
+        .placeholder-svg svg {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Enhanced navbar styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -51,6 +669,11 @@
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
         }
 
         .navbar-content {
@@ -68,121 +691,23 @@
             color: #000;
             text-decoration: none;
             letter-spacing: -0.5px;
-        }
-
-        .artwork-hero {
-            padding-top: 120px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
             position: relative;
+            padding: 0.5rem 0;
         }
 
-        .artwork-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .artwork-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .artwork-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .artwork-image:hover img {
-            transform: scale(1.03);
-        }
-
-        .artwork-details {
-            padding: 2rem 0;
-        }
-
-        .artwork-title {
-            font-family: 'Gabriola', 'Syne', serif;
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            letter-spacing: -1px;
-        }
-
-        .artwork-description {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 2rem;
-        }
-
-        .artwork-info {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .info-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .info-item h3 {
-            font-family: 'Gabriola', 'Syne', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .info-item p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
             background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-top: 2rem;
-            border: 1px solid #000;
+            transition: width 0.3s ease;
         }
-
-        .back-button:hover {
-            background: #fff;
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        @media (max-width: 1024px) {
-            .artwork-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .artwork-image {
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            .artwork-title {
-                font-size: 3.5rem;
-            }
+        /* Adjust hero section */
+        .hero {
+            padding-top: 10rem;
         }
 
         @media (max-width: 768px) {
@@ -190,24 +715,16 @@
                 padding: 1rem;
             }
 
+            .navbar.scrolled {
+                padding: 0.8rem 1rem;
+            }
+
             .navbar-brand {
                 font-size: 2rem;
             }
 
-            .artwork-hero {
-                padding-top: 100px;
-            }
-
-            .artwork-container {
-                padding: 0 1rem;
-            }
-
-            .artwork-title {
-                font-size: 3rem;
-            }
-
-            .artwork-description {
-                font-size: 1.1rem;
+            .hero {
+                padding-top: 8rem;
             }
         }
 
@@ -215,54 +732,134 @@
             .navbar-brand {
                 font-size: 1.8rem;
             }
-
-            .artwork-title {
-                font-size: 2.5rem;
-            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-content">
-            <a href="index.html" class="navbar-brand">Maathiass Gonnicy</a>
+            <a href="#" class="navbar-brand">Maathiass Gonnicy</a>
         </div>
     </nav>
 
-    <main class="artwork-hero">
-        <div class="artwork-container">
-            <div class="artwork-image">
-                <img src="angel_of_death.JPG" alt="Angel of Death - A contemporary artwork by Maathiass Gonnicy">
+    <div class="onboarding">
+        <h1>Welcome to Maathiass Gonnicy</h1>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Exploring Art Through Modern Vision</h1>
+                <p>Welcome to a curated collection of contemporary artworks that challenge traditional perspectives and push creative boundaries. Each piece tells a unique story of innovation and artistic expression.</p>        
             </div>
-            <div class="artwork-details">
-                <h1 class="artwork-title">Angel of Death</h1>
-                <p class="artwork-description">
-                    A haunting masterpiece that explores the delicate balance between mortality and divine intervention. This piece challenges viewers to confront their own understanding of life's finite nature while discovering beauty in the darkness.
-                </p>
-                <p class="artwork-description">
-                    Through careful composition and symbolic elements, the artwork creates a powerful narrative about the eternal dance between life and death, light and shadow, fear and acceptance.
-                </p>
-                <div class="artwork-info">
-                    <div class="info-item">
-                        <h3>Creation Date</h3>
-                        <p>2024</p>
+            <div class="hero-image">
+                <div class="hero-image-column">
+                    <div class="hero-art-piece">
+                        <img src="angel_of_death.JPG" alt="Angel of Death - Featured Art Piece">
                     </div>
-                    <div class="info-item">
-                        <h3>Medium</h3>
-                        <p>Digital Art / Mixed Media</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Dimensions</h3>
-                        <p>3000 x 4000 pixels</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Theme</h3>
-                        <p>Mortality, Divine Intervention, Spiritual Transformation</p>
+                    <div class="hero-art-piece">
+                        <img src="mrs._nobody.jpg" alt="Mrs. Nobody - Featured Art Piece">
                     </div>
                 </div>
-                <a href="index.html" class="back-button">← Back to Gallery</a>
+                <div class="hero-image-column">
+                    <div class="hero-art-piece">
+                        <img src="quiet_milady.jpg" alt="Quiet Milady - Featured Art Piece">
+                    </div>
+                    <div class="hero-art-piece">
+                        <img src="two_teardrops.jpg" alt="Two Teardrops - Featured Art Piece">
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="header">
+            <h2>Art Portfolio</h2>
+            <p>Exploring the boundaries between reality and imagination through contemporary art</p>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <div class="art-piece">
+                <img src="angel_of_death.JPG" alt="Angel of Death - Contemporary Art Piece">
+                <div class="art-description">
+                    <h3>Angel of Death</h3>
+                    <p>A haunting exploration of mortality and divine intervention</p>
+                </div>
+            </div>
+            <div class="art-piece">
+                <img src="mrs._nobody.jpg" alt="Mrs. Nobody - Contemporary Art Piece">
+                <div class="art-description">
+                    <h3>Mrs. Nobody</h3>
+                    <p>An abstract portrayal of identity and anonymity in modern society</p>
+                </div>
+            </div>
+            <div class="art-piece">
+                <img src="quiet_milady.jpg" alt="Quiet Milady - Contemporary Art Piece">
+                <div class="art-description">
+                    <h3>Quiet Milady</h3>
+                    <p>A serene exploration of feminine grace and inner strength</p>
+                </div>
+            </div>
+            <div class="art-piece">
+                <img src="two_teardrops.jpg" alt="Two Teardrops - Contemporary Art Piece">
+                <div class="art-description">
+                    <h3>Two Teardrops</h3>
+                    <p>A poignant piece reflecting on duality and emotional depth</p>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About the Artist</h3>
+                <p>Maathiass Gonnicy is a contemporary artist exploring the boundaries between digital and traditional mediums.</p>
+                <p>Based in the heart of the artistic community, creating unique pieces that challenge perception.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@maathiass.com</p>
+                <p>Studio: +1 (555) 123-4567</p>
+                <p>Location: Art District, Creative City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow for latest updates and exhibitions</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">Ig</a>
+                    <a href="#" aria-label="Twitter">Tw</a>
+                    <a href="#" aria-label="LinkedIn">In</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Maathiass Gonnicy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Add this: Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
