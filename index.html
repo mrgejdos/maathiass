@@ -395,37 +395,23 @@
 
         .hero-image {
             position: relative;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .hero-image-column {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .hero-image-column:nth-child(2) {
-            margin-top: 4rem;
         }
 
         .hero-art-piece {
-            background: #ffff;
+            background: #fff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             transition: all 0.5s ease;
         }
 
         .hero-art-piece:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0);
         }
 
         .hero-art-piece img {
             width: 100%;
-            height: 300px;
+            height: 500px;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
@@ -591,36 +577,6 @@
                 font-size: 0.95rem;
             }
 
-            .hero-image-column {
-                gap: 1rem;
-            }
-
-            .hero-image-column:nth-child(2) {
-                margin-top: 1rem;
-            }
-
-            .footer-section h3 {
-                font-size: 1.2rem;
-            }
-
-            .footer-section p {
-                font-size: 0.95rem;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .onboarding h1 {
-                font-size: 2.5rem;
-                padding: 0 1rem;
-                text-align: center;
-            }
-
-            .art-piece img {
-                height: 250px;
-            }
-            
             .hero-art-piece img {
                 height: 200px;
             }
@@ -685,7 +641,7 @@
         }
 
         .navbar-brand {
-            font-family: 'Gabriola', 'Syne', serif;
+            font-family: 'Garamond', serif;
             font-size: 2.5rem;
             font-weight: 600;
             color: #000;
@@ -749,25 +705,11 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Exploring Art Through Modern Vision</h1>
-                <p>Welcome to a curated collection of contemporary artworks that challenge traditional perspectives and push creative boundaries. Each piece tells a unique story of innovation and artistic expression.</p>        
+                <h1>Every Stroke Tells Stories</h1>
             </div>
             <div class="hero-image">
-                <div class="hero-image-column">
-                    <div class="hero-art-piece">
-                        <img src="angel_of_death.JPG" alt="Angel of Death - Featured Art Piece">
-                    </div>
-                    <div class="hero-art-piece">
-                        <img src="mrs._nobody.jpg" alt="Mrs. Nobody - Featured Art Piece">
-                    </div>
-                </div>
-                <div class="hero-image-column">
-                    <div class="hero-art-piece">
-                        <img src="quiet_milady.jpg" alt="Quiet Milady - Featured Art Piece">
-                    </div>
-                    <div class="hero-art-piece">
-                        <img src="two_teardrops.jpg" alt="Two Teardrops - Featured Art Piece">
-                    </div>
+                <div class="hero-art-piece">
+                    <img src="hero.jpeg" alt="Hero Image - Featured Art Piece">
                 </div>
             </div>
         </div>  
